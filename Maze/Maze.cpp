@@ -7,7 +7,6 @@
 //         R E M E D Y  2014          //
 //------------------------------------//
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
