@@ -25,7 +25,6 @@
 #define DELAY 100
 #define EXIT 50
 
-
 int currunt_stage = 1;
 
 int maze[MAZE_BOARD_HEIGHT][MAZE_BOARD_WIDTH] = {
