@@ -1,3 +1,10 @@
+//            R E M E D Y             //
+//       ì œì‘ : ì˜¤ìŠ¹ì£¼, ë°•í˜„ìˆ˜        //
+//       ê¸°íš : ì—¬ì§€í˜, ë°•í˜„ìˆ˜        //
+//                                    //
+//  Copyright Â© All Rights Reserved.  //
+//         R E M E D Y  2014          //
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
@@ -5,8 +12,8 @@
 
 #define MAZE_BOARD_HEIGHT 20
 #define MAZE_BOARD_WIDTH 30
-#define POINT_X 4  //º¸µå ½ÃÀÛÁÂÇ¥ x
-#define POINT_Y 2  //º¸µå ½ÃÀÛÁÂÇ¥ y
+#define POINT_X 4  //ë³´ë“œ ì‹œì‘ì¢Œí‘œ x
+#define POINT_Y 2  //ë³´ë“œ ì‹œì‘ì¢Œí‘œ y
 
 #define LEFT 75
 #define RIGHT 77
@@ -320,87 +327,87 @@ void showBoard(void)
 			{
 			case 1:
 				if (maze[y][x] == '1')
-					printf("¡á");
+					printf("â– ");
 				if (maze[y][x] == 'x')
-					printf("¡æ");
+					printf("â†’");
 				break;
 			case 2:
 				if (maze2[y][x] == '1')
-					printf("¡á");
+					printf("â– ");
 				if (maze2[y][x] == 'x')
-					printf("¡æ");
+					printf("â†’");
 				break;
 			case 3:
 				if (maze3[y][x] == '1')
-					printf("¡á");
+					printf("â– ");
 				if (maze3[y][x] == 'x')
-					printf("¡é");
+					printf("â†“");
 				break;
 			case 4:
 				if (maze4[y][x] == '1')
-					printf("¡á");
+					printf("â– ");
 				if (maze4[y][x] == 'x')
-					printf("¡é");
+					printf("â†“");
 				break;
 			case 5:
 				if (maze5[y][x] == '1')
-					printf("¡á");
+					printf("â– ");
 				if (maze5[y][x] == 'x')
-					printf("¡é");
+					printf("â†“");
 				break;
 			case 6:
 				if (maze6[y][x] == '1')
-					printf("¡á");
+					printf("â– ");
 				if (maze6[y][x] == 'x')
-					printf("¡æ");
+					printf("â†’");
 				break;
 			case 7:
 				if (maze7[y][x] == '1')
-					printf("¡á");
+					printf("â– ");
 				if (maze7[y][x] == 'x')
-					printf("¡é");
+					printf("â†“");
 				break;
 			case 8:
 				if (maze8[y][x] == '1')
-					printf("¡á");
+					printf("â– ");
 				if (maze8[y][x] == 'x')
-					printf("¡é");
+					printf("â†“");
 				break;
 			case 9:
 				if (maze9[y][x] == '1')
-					printf("¡á");
+					printf("â– ");
 				if (maze9[y][x] == 'x')
-					printf("¡æ");
+					printf("â†’");
 				break;
 			case 10:
 				if (maze10[y][x] == '1')
-					printf("¡á");
+					printf("â– ");
 				if (maze10[y][x] == 'x')
-					printf("¡æ");
+					printf("â†’");
 				break;
 			case 11:
 				if (maze11[y][x] == '1')
-					printf("¡á");
+					printf("â– ");
 				if (maze11[y][x] == 'x')
-					printf("¡é");
+					printf("â†“");
 				break;
 			case 12:
 				if (maze12[y][x] == '1')
 					printf(" ");
 				if (maze12[y][x] == '2')
-					printf("¼ö");
+					printf("ìˆ˜");
 				if (maze12[y][x] == '3')
-					printf("°í");
+					printf("ê³ ");
 				if (maze12[y][x] == '4')
-					printf("ÇÏ");
+					printf("í•˜");
 				if (maze12[y][x] == '5')
-					printf("¼Ì");
+					printf("ì…¨");
 				if (maze12[y][x] == '6')
-					printf("½À");
+					printf("ìŠµ");
 				if (maze12[y][x] == '7')
-					printf("´Ï");
+					printf("ë‹ˆ");
 				if (maze12[y][x] == '8')
-					printf("´Ù");
+					printf("ë‹¤");
 				break;
 			default:
 				break;
@@ -412,7 +419,7 @@ void showBoard(void)
 void showCharacter(void)
 {
 	COORD cur = getCursor();
-	printf("¡İ");
+	printf("â—");
 
 	setCursor(cur.X, cur.Y);
 
@@ -422,16 +429,16 @@ int detect(int x, int y)
 	int x1 = 0;
 	int y1 = 0;
 
-	// Ä¿¼­ À§Ä¡ ¾ò±â
+	// ì»¤ì„œ ìœ„ì¹˜ ì–»ê¸°
 	COORD cur = getCursor();
 
-	// ¹Ì·Î³»¿¡¼­ÀÇ À§Ä¡ °è»ê.
+	// ë¯¸ë¡œë‚´ì—ì„œì˜ ìœ„ì¹˜ ê³„ì‚°.
 	x1 = cur.X + x;
 	y1 = cur.Y + y;
 	x1 = x1 / 2 - 2;
 	y1 = y1 - 2;
 
-	// ¹Ì·Î ¹Û¿¡ ÀÖ´À³Ä?
+	// ë¯¸ë¡œ ë°–ì— ìˆëŠëƒ?
 	if (!((x1 >= 0 && x1 <MAZE_BOARD_WIDTH) && (y1 >= 0 && y1 <MAZE_BOARD_HEIGHT)))
 	{
 		return 1;
@@ -439,10 +446,10 @@ int detect(int x, int y)
 	switch (currunt_stage)
 	{
 	case 1:
-		//¹è¿­À» ³Ñ¾î°¡Áö ¾Ê´ÂÀÌÀ¯?
+		//ë°°ì—´ì„ ë„˜ì–´ê°€ì§€ ì•ŠëŠ”ì´ìœ ?
 		if (maze[y1][x1] == '1') //++
 			return 1;
-		//¹Ì¼Ç¼º°ø
+		//ë¯¸ì…˜ì„±ê³µ
 		else if (maze[y1][x1] == 'x')
 			return EXIT;
 		else
@@ -451,7 +458,7 @@ int detect(int x, int y)
 	case 2:
 		if (maze2[y1][x1] == '1') //++
 			return 1;
-		//¹Ì¼Ç¼º°ø
+		//ë¯¸ì…˜ì„±ê³µ
 		else if (maze2[y1][x1] == 'x')
 			return EXIT;
 		else
@@ -460,7 +467,7 @@ int detect(int x, int y)
 	case 3:
 		if (maze3[y1][x1] == '1') //++
 			return 1;
-		//¹Ì¼Ç¼º°ø
+		//ë¯¸ì…˜ì„±ê³µ
 		else if (maze3[y1][x1] == 'x')
 			return EXIT;
 		else
@@ -469,7 +476,7 @@ int detect(int x, int y)
 	case 4:
 		if (maze4[y1][x1] == '1') //++
 			return 1;
-		//¹Ì¼Ç¼º°ø
+		//ë¯¸ì…˜ì„±ê³µ
 		else if (maze4[y1][x1] == 'x')
 			return EXIT;
 		else
@@ -478,7 +485,7 @@ int detect(int x, int y)
 	case 5:
 		if (maze5[y1][x1] == '1') //++
 			return 1;
-		//¹Ì¼Ç¼º°ø
+		//ë¯¸ì…˜ì„±ê³µ
 		else if (maze5[y1][x1] == 'x')
 			return EXIT;
 		else
@@ -487,7 +494,7 @@ int detect(int x, int y)
 	case 6:
 		if (maze6[y1][x1] == '1') //++
 			return 1;
-		//¹Ì¼Ç¼º°ø
+		//ë¯¸ì…˜ì„±ê³µ
 		else if (maze6[y1][x1] == 'x')
 			return EXIT;
 		else
@@ -495,7 +502,7 @@ int detect(int x, int y)
 	case 7:
 		if (maze7[y1][x1] == '1') //++
 			return 1;
-		//¹Ì¼Ç¼º°ø
+		//ë¯¸ì…˜ì„±ê³µ
 		else if (maze7[y1][x1] == 'x')
 			return EXIT;
 		else
@@ -504,7 +511,7 @@ int detect(int x, int y)
 	case 8:
 		if (maze8[y1][x1] == '1') //++
 			return 1;
-		//¹Ì¼Ç¼º°ø
+		//ë¯¸ì…˜ì„±ê³µ
 		else if (maze8[y1][x1] == 'x')
 			return EXIT;
 		else
@@ -513,7 +520,7 @@ int detect(int x, int y)
 	case 9:
 		if (maze9[y1][x1] == '1') //++
 			return 1;
-		//¹Ì¼Ç¼º°ø
+		//ë¯¸ì…˜ì„±ê³µ
 		else if (maze9[y1][x1] == 'x')
 			return EXIT;
 		else
@@ -522,7 +529,7 @@ int detect(int x, int y)
 	case 10:
 		if (maze10[y1][x1] == '1') //++
 			return 1;
-		//¹Ì¼Ç¼º°ø
+		//ë¯¸ì…˜ì„±ê³µ
 		else if (maze10[y1][x1] == 'x')
 			return EXIT;
 		else
@@ -531,7 +538,7 @@ int detect(int x, int y)
 	case 11:
 		if (maze11[y1][x1] == '1') //++
 			return 1;
-		//¹Ì¼Ç¼º°ø
+		//ë¯¸ì…˜ì„±ê³µ
 		else if (maze11[y1][x1] == 'x')
 			return EXIT;
 		else
@@ -540,7 +547,7 @@ int detect(int x, int y)
 	case 12:
 		if (maze12[y1][x1] == '1') //++
 			return 1;
-		//¹Ì¼Ç¼º°ø
+		//ë¯¸ì…˜ì„±ê³µ
 		else if (maze12[y1][x1] == 'x')
 			return EXIT;
 		else
@@ -550,10 +557,10 @@ int detect(int x, int y)
 		break;
 	}
 	/*
-	//¹è¿­À» ³Ñ¾î°¡Áö ¾Ê´ÂÀÌÀ¯?
+	//ë°°ì—´ì„ ë„˜ì–´ê°€ì§€ ì•ŠëŠ”ì´ìœ ?
 	if(maze2[y1][x1]=='1')
 	return 1;
-	//¹Ì¼Ç¼º°ø
+	//ë¯¸ì…˜ì„±ê³µ
 	else if(maze2[y1][x1]=='x')
 	return EXIT;
 	else
@@ -574,7 +581,7 @@ int RemoveCharacter_Set(int x, int y)
 	else if (value == EXIT)
 	{
 		setCursor(10, 15);
-		printf("\n\n\n\n\n\n\nENTER¸¦ µÎ¹ø ´©¸£¼¼¿ä!\n\n\n\n");
+		printf("\n\n\n\n\n\n\nENTERë¥¼ ë‘ë²ˆ ëˆ„ë¥´ì„¸ìš”!\n\n\n\n");
 		system("pause");
 
 		currunt_stage += 1;
@@ -592,7 +599,7 @@ void character_static(void)
 {
 	int kb;
 	int ret = 0;
-	setCursor(4, 3);  //ÄÉ¸¯ÅÍ ½ÃÀÛÀ§Ä¡
+	setCursor(4, 3);  //ì¼€ë¦­í„° ì‹œì‘ìœ„ì¹˜
 	while (1)
 	{
 		while (!_kbhit())
@@ -628,11 +635,11 @@ int main()
 	while (1)
 	{
 		system("cls");
-		printf("Á¡¼ö : %dÁ¡, ÇöÀç %d ½ºÅ×ÀÌÁö\n", score, stage);
-		removeCursor(); //Ä¿¼­ ±ô¹ÚÀÌ Áö¿ì±â
-		setCursor(POINT_X, POINT_Y); //º¸µå ½ÃÀÛÁÂÇ¥
-		showBoard(); //¹Ì·ÎÆÇ º¸¿©ÁÖ±â
-		character_static(); //ÄÉ¸¯ÅÍ ¿òÁ÷ÀÌ±â
+		printf("ì ìˆ˜ : %dì , í˜„ì¬ %d ìŠ¤í…Œì´ì§€\n", score, stage);
+		removeCursor(); //ì»¤ì„œ ê¹œë°•ì´ ì§€ìš°ê¸°
+		setCursor(POINT_X, POINT_Y); //ë³´ë“œ ì‹œì‘ì¢Œí‘œ
+		showBoard(); //ë¯¸ë¡œíŒ ë³´ì—¬ì£¼ê¸°
+		character_static(); //ì¼€ë¦­í„° ì›€ì§ì´ê¸°
 		getchar();
 	}
 }
